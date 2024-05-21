@@ -29,17 +29,17 @@ jobs:
       uses: hashicorp/setup-terraform@v1
 
     - name: Terraform Init
-      working-directory: Terraform/aks
+      working-directory: deployment/infra/Terraform/aks
       run: terraform init
            
     - name: Terraform Format
-      working-directory: Terraform/aks
+      working-directory: deployment/infra/Terraform/aks
       run: terraform fmt
 
     - name: Terraform Plan
-      working-directory: Terraform/aks
+      working-directory: deployment/infra/Terraform/aks
       run: terraform plan
     
     - name: Terraform Apply
-      working-directory: Terraform/aks
+      working-directory: deployment/infra/Terraform/aks
       run: terraform apply -auto-approve
