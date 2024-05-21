@@ -1,0 +1,45 @@
+@use "../utilities/variables" as v;
+
+// error form style
+
+.formContainer__body__form--error {
+  align-self: center;
+  background-color: v.$back_web_darker;
+  height: fit-content;
+  width: 100%;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
+  margin: 5px;
+
+  ul {
+    padding: 5px 30px;
+
+    li {
+      font-size: 1.5rem;
+      font-weight: 500;
+      font-family: v.$manrope;
+    }
+    li::marker {
+      content: "❱ ";
+      color: v.$grey;
+    }
+  }
+}
+
+.input_error {
+  outline: #d53030 solid 2px;
+}
+
+.input_regex_message {
+  font-size: 20px;
+}
+
+.errorMessage-enter-active,
+.errorMessage-leave-active {
+  transition: all 0.4s ease-in-out;
+}
+
+.errorMessage-enter-from,
+.errorMessage-leave-to {
+  opacity: 0;
+}

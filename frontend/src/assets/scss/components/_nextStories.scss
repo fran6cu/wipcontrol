@@ -1,0 +1,105 @@
+@use "../utilities/_variables.scss" as v;
+
+// next story style
+
+.next {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 2.5rem;
+    color: v.$white;
+    font-family: v.$merri;
+    text-align: center;
+    margin-bottom: 4rem;
+    white-space: nowrap;
+  }
+
+  &__container {
+    width: 80%;
+    max-width: 300px;
+    min-width: 200px;
+    height: 300px;
+    background-color: rgba(51, 51, 51, 0.5);
+    border-radius: 1rem;
+    font-family: v.$manrope;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+
+    .list {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      &__item {
+        flex-grow: 1;
+        height: 20%;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas: "orden info";
+
+        color: v.$white;
+        width: 100%;
+
+        &__order {
+          width: 40px;
+          grid-area: orden;
+          font-size: 3.5rem;
+          padding: 0 2rem 0 0;
+        }
+
+        &__info {
+          grid-area: info;
+          height: fit-content;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 0px 0px;
+          grid-template-areas:
+            "title"
+            "points";
+
+          &__name {
+            position: relative;
+            max-width: fit-content;
+            grid-area: title;
+            font-size: 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+          }
+
+          &__name::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: v.$grey;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+            transform: scaleX(0);
+          }
+
+          &__name:hover::after {
+            transform-origin: bottom left;
+            transform: scaleX(1);
+          }
+
+          &__vote {
+            grid-area: points;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}

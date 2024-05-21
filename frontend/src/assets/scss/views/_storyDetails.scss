@@ -1,0 +1,55 @@
+@use "../utilities/variables" as v;
+
+
+.mainDetails {
+  width: 75%;
+  margin: 0 auto;
+  min-width: 25rem;
+  max-width: 175rem;
+}
+
+.loader__details {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 100rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
+
+  
+  &__item {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    width: 15rem;
+    border: none;
+    border-radius: 10px;
+    background-color: v.$back_menu_espera;
+    cursor: pointer;
+    transition: all 0.3s;}
+
+  
+  .active {
+    background-color: v.$grey;
+    color: v.$black;
+  }
+
+  .inactive {
+    background-color: v.$black;
+    color: v.$white;
+  }
+
+  .inactive:hover {
+    background-color: v.$grey;
+    color: v.$black;
+  }
+}

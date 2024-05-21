@@ -1,0 +1,47 @@
+@use "../utilities/_variables.scss" as v;
+
+// header style
+
+.header {
+  background-color: v.$back_web_lighter;
+  height: 7.5rem;
+  padding: 0 auto;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    min-width: 25rem;
+    max-width: 175rem;
+    height: 100%;
+    margin: 0 auto;
+
+    &--label {
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: v.$white;
+      width: fit-content;
+      align-self: center;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 20px;
+      background-color: v.$back_menu_darker;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    &__logo {
+      height: 65%;
+      cursor: pointer;
+    }
+
+    &__menu {
+      filter: invert(89%) sepia(57%) saturate(1445%) hue-rotate(322deg)
+        brightness(92%) contrast(94%);
+      height: 50%;
+      cursor: pointer;
+    }
+  }
+}

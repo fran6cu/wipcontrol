@@ -1,0 +1,163 @@
+@use "../utilities/_variables.scss" as v;
+
+// menu style
+
+.menuContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+
+  &__overlay {
+    width: 30%;
+    max-width: 350px;
+    min-width: 300px;
+    height: fit-content;
+    background: v.$back_menu_medium;
+    position: absolute;
+    margin: 100px 7.5%;
+    right: 0;
+    -webkit-box-shadow: 0px 0px 29px 8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 29px 8px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 29px 8px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+
+    .noUser {
+      flex: 0 1 auto;
+      height: 150px;
+      background-color: v.$back_web_lighter;
+      overflow: hidden;
+      border-radius: 10px 10px 0 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      .text {
+        font-family: v.$manrope;
+        font-size: 3rem;
+        text-align: center;
+
+        .underline {
+          font-size: 3rem;
+          text-decoration: underline;
+          text-decoration-color: v.$grey;
+          text-decoration-thickness: 3px;
+        }
+      }
+    }
+
+    .yesUser {
+      flex: 0 1 auto;
+      height: 150px;
+      background-color: v.$back_web_lighter;
+      overflow: hidden;
+      border-radius: 10px 10px 0 0;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: min-content auto;
+      grid-template-rows: min-content min-content;
+      gap: 0px 0px;
+      grid-template-areas:
+        "foto username"
+        "foto perfil";
+      align-content: center;
+
+      &__img {
+        grid-area: foto;
+        width: 10rem;
+        height: 10rem;
+        margin: 0 1.5rem 0 0;
+        border-radius: 50%;
+        outline: v.$grey solid 2px;
+        object-fit: cover;
+      }
+
+      &__username {
+        grid-area: username;
+        font-family: v.$merri;
+        font-size: 2rem;
+        font-weight: 500;
+        color: v.$white;
+      }
+
+      &__edit {
+        grid-area: perfil;
+        font-family: v.$manrope;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+
+    .listMenu {
+      &__item {
+        flex: 1 1 auto;
+        width: 100%;
+        height: 9rem;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0 2rem;
+        background-image: linear-gradient(
+          v.$back_web_darker,
+          v.$back_web_darker
+        );
+        background-size: 0 100%;
+        background-repeat: no-repeat;
+        transition: all 0.3s;
+
+        &--img {
+          width: 4rem;
+          height: 4rem;
+          margin-right: 1.5rem;
+          filter: invert(100%);
+        }
+
+        &--text {
+          font-family: v.$manrope;
+          font-size: 2rem;
+          font-weight: 500;
+          color: v.$white;
+        }
+      }
+
+      .logout {
+        background-image: linear-gradient(#fc4747, #fc4747);
+      }
+
+      &__item:hover {
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+
+.menuBackground-enter-active,
+.menuBackground-leave-active {
+  transition: all 0.25s ease;
+}
+
+.menuBackground-enter-from,
+.menuBackground-leave-to {
+  opacity: 0;
+}
+
+.menuModal-enter-active,
+.menuModal-leave-active {
+  transition: all 0.5s ease;
+}
+
+.menuModal-enter-from,
+.menuModal-leave-to {
+  transform: translatex(100%);
+}

@@ -1,0 +1,42 @@
+# version: "3" deprecated
+services:
+  db:
+    container_name: db
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    # image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: wipcontrol
+      MYSQL_USER: root123
+      MYSQL_PASSWORD: root123
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    expose:
+      - 3307
+    volumes:
+      - /mysql/home:/docker-entrypoint-initdb.d
+      - ./mysql:/docker-entrypoint-initdb.d
+    
+
+  backend:
+    container_name: springbackend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    command: sh -c 'bash /app/wait-for-it.sh db:3306 -t 60 -- java -jar target/wipcontrol-0.0.1-SNAPSHOT.jar'
+
+  frontend:
+    container_name: vuefrontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend

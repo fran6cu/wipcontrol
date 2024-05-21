@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: wipcontrol
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wipcontrol-back
+  namespace: wipcontrol
+spec:
+  selector:
+    app: wipcontrol-back
+  ports:
+  - protocol: "TCP"
+    port: 8080
+    targetPort: 8080
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wipcontrol-back
+  namespace: wipcontrol
+spec:
+  selector:
+    matchLabels:
+      app: wipcontrol-back
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wipcontrol-back
+    spec:
+      containers:
+      - name: wipcontrol-back
+        image: wipcontrolacr.azurecr.io/wipcontrol-back:v1
+        ports:
+        - containerPort: 8080
+---

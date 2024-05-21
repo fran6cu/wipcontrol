@@ -1,0 +1,266 @@
+@use "../utilities/_variables.scss" as v;
+
+// comments style
+
+.comments {
+  margin-bottom: 5rem;
+
+  &__add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    gap: 1.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 6rem;
+    font-family: v.$manrope;
+    font-weight: 600;
+    width: 100%;
+
+    @media (max-width: 800px) {
+      font-size: 2rem;
+      margin: 6rem auto 0;
+    }
+
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+      filter: invert(100%);
+
+      @media (max-width: 800px) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
+
+  &__add:hover {
+    color: #c75836;
+
+    img {
+      filter: invert(75%) sepia(58%) saturate(498%) hue-rotate(65deg)
+        brightness(102%) contrast(84%);
+    }
+  }
+
+  &__container {
+    &--item {
+      display: grid;
+      grid-template-columns: min-content auto;
+      grid-template-rows: 1fr 1fr;
+      gap: 0px 0px;
+      grid-template-areas:
+        "user comment"
+        "user comment";
+      border-bottom: 5px solid v.$grey;
+      padding: 4rem 0 2rem;
+      min-width: 30rem;
+
+      .user {
+        grid-area: user;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content auto;
+        grid-template-areas:
+          "imagen"
+          "boton";
+
+        &__img {
+          grid-area: imagen;
+          width: 15rem;
+          height: 15rem;
+          object-fit: cover;
+          border-radius: 50%;
+          outline: v.$grey solid 2px;
+          margin: 3rem 6rem 1rem;
+          align-self: center;
+          justify-self: center;
+          transition: all 0.3s ease-in-out;
+
+          @media (max-width: 1000px) {
+            width: 10rem;
+            height: 10rem;
+            margin: 3rem 3rem 1rem;
+          }
+
+          @media (max-width: 600px) {
+            width: 7rem;
+            height: 7rem;
+            margin: 3rem 1rem 1rem;
+          }
+        }
+
+        &__remove {
+          grid-area: boton;
+          font-size: 2rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: fit-content;
+          height: fit-content;
+          grid: center;
+          justify-self: center;
+          align-self: flex-end;
+          font-family: v.$manrope;
+          font-weight: 600;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 1rem 0;
+
+          @media (max-width: 1000px) {
+            font-size: 1.5rem;
+          }
+
+          @media (max-width: 600px) {
+            font-size: 1rem;
+          }
+
+          &--icon {
+            filter: invert(100%);
+            margin-right: 1.5rem;
+            width: 3.5rem;
+            height: 3.5rem;
+
+            @media (max-width: 1000px) {
+              width: 2.5rem;
+              height: 2.5rem;
+            }
+
+            @media (max-width: 600px) {
+              width: 2rem;
+              height: 2rem;
+            }
+          }
+        }
+
+        &__remove:hover {
+          color: v.$red;
+
+          img {
+            filter: invert(49%) sepia(82%) saturate(369%) hue-rotate(313deg)
+              brightness(94%) contrast(95%);
+          }
+        }
+      }
+
+      .comment {
+        min-width: 200px;
+        grid-area: comment;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content auto;
+        gap: 0px 0px;
+        grid-template-areas:
+          "info"
+          "text";
+
+        &__info {
+          grid-area: info;
+          font-size: 3rem;
+          font-family: v.$merri;
+          padding: 1rem 0 1rem 0.5rem;
+
+          @media (max-width: 1000px) {
+            font-size: 2rem;
+          }
+
+          @media (max-width: 600px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        &__text {
+          grid-area: text;
+          font-size: 2rem;
+          line-height: 1.5;
+          font-family: v.$manrope;
+          padding: 1rem;
+
+          @media (max-width: 1000px) {
+            font-size: 1.5rem;
+          }
+
+          @media (max-width: 600px) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.noComment {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+  text-align: center;
+  color: v.$white;
+  margin-bottom: 5rem;
+
+  &__title {
+    font-size: 6rem;
+    font-family: v.$merri;
+    margin-bottom: 1rem;
+
+    @media (max-width: 850px) {
+      font-size: 4rem;
+    }
+  }
+
+  &__explain {
+    width: 70%;
+    min-width: 300px;
+    font-size: 2rem;
+    font-family: v.$manrope;
+    margin-bottom: 1rem;
+
+    @media (max-width: 850px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    gap: 1.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 6rem;
+    font-family: v.$manrope;
+    font-weight: 600;
+
+    @media screen and (max-width: 850px) {
+      font-size: 2rem;
+      margin-top: 3rem;
+    }
+
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+      filter: invert(100%);
+
+      @media screen and (max-width: 850px) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
+
+  &__button:hover {
+    color: #c75836;
+
+    img {
+      filter: invert(75%) sepia(58%) saturate(498%) hue-rotate(65deg)
+        brightness(102%) contrast(84%);
+    }
+  }
+}

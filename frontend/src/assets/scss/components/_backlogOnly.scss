@@ -1,0 +1,52 @@
+@use "../utilities/_variables.scss" as v;
+
+
+// slider backlog style
+
+.sliderDetails {
+  margin-top: 40px;
+  margin: 40px auto 0;
+  width: 100px;
+}
+
+@media (max-width: 800px) {
+  .sliderDetails__item {
+    font-size: 1rem;
+  }
+}
+
+.backlogOnly {
+  padding-top: 20px;
+  width: fit-content;
+  max-width: 1000px;
+
+  &__hours {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 20px 0;
+    margin-bottom: 100px;
+    &--item {
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: v.$white;
+      font-family: v.$manrope;
+      background-color: v.$back_menu_espera;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 0 40px 0 40px;
+    }
+    &--item:hover {
+      background-color: v.$grey;
+      color: v.$black;
+    }
+  }
+
+  &__hours:hover {
+    background-color: v.$black;
+  }
+}

@@ -1,0 +1,107 @@
+@use "../utilities/_variables.scss" as v;
+
+// confirmation style
+
+.modalContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+  .modal {
+    max-width: 750px;
+    min-width: 250px;
+    padding: 5rem;
+    margin: 0 5rem;
+    background-color: v.$back_menu_medium;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+
+    @media screen and (max-width: 500px) {
+      padding: 3rem;
+      margin: 0 3rem;
+    }
+
+    &__msg {
+      width: 75%;
+      font-size: 3rem;
+      font-family: v.$manrope;
+      text-align: center;
+      margin-bottom: 4rem;
+
+      @media screen and (max-width: 500px) {
+        font-size: 2rem;
+      }
+
+      @media screen and (max-width: 350px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__buttons {
+      width: 75%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 2rem;
+
+      &--item {
+        width: 100px;
+        height: 50px;
+        font-size: 3rem;
+        border: none;
+        background-color: v.$back_web_lighter;
+        border-radius: 10px;
+        cursor: pointer;
+
+        @media screen and (max-width: 500px) {
+          font-size: 2rem;
+          width: 75px;
+          height: 40px;
+        }
+
+        @media screen and (max-width: 350px) {
+          font-size: 1.5rem;
+          width: 50px;
+          height: 30px;
+        }
+      }
+
+      &--item:hover {
+        background-color: v.$grey;
+        color: v.$black;
+      }
+    }
+  }
+}
+
+.modalBG-enter-active,
+.modalBG-leave-active {
+  transition: opacity 0.3s;
+}
+
+.modalBG-enter-from,
+.modalBG-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  transform: scale(0.9);
+  opacity: 0;
+}

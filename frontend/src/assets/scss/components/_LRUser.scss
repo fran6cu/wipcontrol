@@ -1,0 +1,150 @@
+@use "../utilities/variables" as v;
+
+// sign up and login style
+
+.formBG {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: v.$manrope;
+  z-index: 2;
+}
+
+.formContainer {
+  width:600px;
+  height: fit-content;
+  background-color: v.$back_menu_medium;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+
+  &__selectors {
+    width: 70%;
+    position: relative;
+    background-color: v.$back_web_lighter;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+
+    button {
+      font-size: 2.5rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      background-color: transparent;
+      border-radius: 5px;
+      margin: 0 10px;
+      cursor: pointer;
+      border: none;
+      transition: 0.5s;
+    }
+
+    .btnActivated {
+      font-weight: 600;
+      color: v.$black;
+      background-color: v.$grey;
+    }
+  }
+  &__body {
+    width: 70%;
+
+    &--text {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: v.$white;
+      margin: 30px 0;
+    }
+
+    &__form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      button {
+        font-size: 3rem;
+        font-weight: 500;
+        color: v.$white;
+        width: fit-content;
+        align-self: center;
+        margin-top: 30px;
+        border: none;
+        border-radius: 5px;
+        padding: 15px 20px;
+        background-color: v.$back_web_lighter;
+        cursor: pointer;
+        transition: all 0.7s;
+
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+
+      button:hover {
+        background-color: v.$grey;
+        color: v.$black;
+      }
+
+      label {
+        font-size: 2rem;
+        margin-bottom: 5px;
+        color: v.$white;
+        font-family: v.$manrope;
+      }
+
+      input {
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        background-color: v.$back_menu_lighter;
+        margin: 0 0 20px;
+        color: v.$black;
+        font-family: v.$manrope;
+      }
+
+      textarea {
+        width: 100%;
+        height: 20rem;
+        resize: none;
+        padding: 10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        background-color: v.$back_menu_lighter;
+        margin: 0 0 20px;
+        color: v.$black;
+        font-family: v.$manrope;
+
+        @media (max-width: 768px) {
+          height: 10rem;
+        }
+      }
+    }
+  }
+}
+
+.formBackground-enter-active,
+.formBackground-leave-active {
+  transition: all 0.25s ease;
+}
+
+.formBackground-enter-from,
+.formBackground-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,163 @@
+@use "../utilities/_variables.scss" as v;
+
+// story background style
+
+
+
+.containerInfo {
+  padding-top: 10px;
+  width: 100%;
+  min-width: 32rem;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+  gap: 0px 0px;
+  
+
+  &__details {
+    padding-top: 20px;
+
+    &--title {
+      min-width: 100px;
+      max-width: 100%;
+      font-size: 3rem;
+      font-family: v.$fjalla;
+      margin-top: auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &--data {
+      font-size: 2rem;
+      font-family: v.$manrope;
+    }
+  
+  }
+}
+
+.adminButtons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2rem;
+  font-size: 3rem;
+
+  .deleteOption {
+    cursor: pointer;
+    margin: 0;
+    width: fit-content;
+
+    @media screen and (max-width: 850px) {
+      font-size: 2rem;
+      margin: 0;
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 0;
+    }
+  }
+
+  .deleteOption:hover {
+    color: v.$red;
+
+    img {
+      filter: invert(77%) sepia(51%) saturate(5649%) hue-rotate(316deg)
+        brightness(97%) contrast(90%);
+    }
+  }
+
+  .editOption {
+    cursor: pointer;
+    margin: 0;
+    width: fit-content;
+
+    @media screen and (max-width: 850px) {
+      font-size: 2rem;
+      margin: 0;
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+    
+    @media screen and (max-width: 700px) {
+      font-size: 1rem;
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 0;
+    }
+  }
+
+  .editOption:hover {
+    color: v.$orange;
+
+    img {
+      filter: invert(93%) sepia(13%) saturate(2685%) hue-rotate(334deg)
+        brightness(97%) contrast(85%);
+    }
+  }
+
+  .otherOption {
+    cursor: pointer;
+    margin: 0;
+    width: fit-content;
+
+    @media screen and (max-width: 850px) {
+      font-size: 2rem;
+      margin: 0;
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+    
+    @media screen and (max-width: 700px) {
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 0;
+    }
+  }
+
+  .otherOption:hover {
+    color: v.$grey;
+
+   
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .containerInfo {
+    
+    &__details {
+      padding: 10px;
+
+      &--title {
+        font-size: 2rem;
+      }
+
+      &--data {
+        font-size: 1.7rem;
+      }
+
+     
+    }
+  }
+}

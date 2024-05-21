@@ -1,0 +1,64 @@
+@use "../utilities/_variables.scss" as v;
+
+// new story style
+
+.newForm {
+  max-width: 700px;
+  width: 60%;
+  
+  min-width: 35rem;
+  padding: 2rem 3rem 3rem;
+
+  label {
+    font-family: v.$manrope;
+    font-size: 1.5rem;
+    
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+  }
+
+  select {
+    height: 40px;
+    padding: 10px 10px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 5px;
+    background-color: v.$back_menu_lighter;
+    margin: 0 0 20px;
+    color: v.$black;
+    font-family: v.$manrope;
+   
+  }
+
+  textarea {
+    height: 80px;
+    padding: 10px 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    background-color: v.$back_menu_lighter;
+    margin: 0 0 20px;
+    color: v.$black;
+    font-family: v.$manrope;
+    
+  }
+
+  .limit {
+    color: v.$red;
+  }
+
+ 
+
+  fieldset {
+    margin-top: 2rem;
+
+    .modalForm__count {
+      margin: 0;
+    }
+  }
+}

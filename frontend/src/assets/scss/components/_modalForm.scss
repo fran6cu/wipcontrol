@@ -1,0 +1,107 @@
+@use "../utilities/_variables.scss" as v;
+
+// modal style
+
+.modalForm {
+  max-width: 450px;
+  width: 40%;
+  min-width: 250px;
+  background-color: v.$back_menu_medium;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  z-index: 3;
+
+  &__comment {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 3rem;
+    font-family: v.$manrope;
+    text-align: center;
+    padding-bottom: 2rem;
+
+    @media screen and (max-width: 500px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 350px;
+    background-color: v.$back_menu_lighter;
+    font-family: v.$manrope;
+    font-weight: 500;
+    font-size: 2rem;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    resize: none;
+    color: v.$black;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.5rem;
+      height: 200px;
+    }
+  }
+
+  &__count {
+    width: 100%;
+    text-align: right;
+    font-size: 1.5rem;
+    font-family: v.$manrope;
+    font-weight: 500;
+    color: v.$white;
+    margin-top: 0.5rem;
+  }
+
+  .limit {
+    color: v.$red;
+  }
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+
+    &--item {
+      width: 40%;
+      min-width: fit-content;
+      height: 50px;
+      font-size: 2.5rem;
+      border: none;
+      background-color: v.$back_web_lighter;
+      border-radius: 10px;
+      color: v.$white;
+      font-family: v.$manrope;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      @media screen and (max-width: 800px) {
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        background-color: v.$grey;
+        color: v.$black;
+      }
+    }
+  }
+}
+
+.contact__text {
+  font-size: 3rem;
+  font-family: v.$manrope;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: 1000px) {
+    font-size: 2rem;
+  }
+}

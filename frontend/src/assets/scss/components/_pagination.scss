@@ -1,0 +1,47 @@
+@use "../utilities/_variables.scss" as v;
+
+// pagination style
+
+.v-pagination {
+  &__list {
+    .v-pagination__item {
+      &--is-active {
+        color: v.$grey;
+        opacity: 1;
+
+        .v-btn__overlay {
+          opacity: 1;
+        }
+
+        .v-btn__content {
+          color: v.$black;
+        }
+      }
+    }
+  }
+
+  .v-btn__content {
+    font-size: 2rem;
+    font-family: v.$merri;
+    color: v.$white;
+    z-index: 1;
+  }
+}
+
+.v-btn {
+  cursor: pointer;
+}
+
+.v-btn:hover > .v-btn__overlay {
+  background-color: black;
+}
+
+.v-btn:hover > .v-btn__underlay {
+  background-color: v.$grey;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+
+.v-ripple__container {
+  color: v.$grey !important;
+}

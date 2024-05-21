@@ -1,0 +1,107 @@
+@use "../utilities/_variables.scss" as v;
+
+// backlog styles
+
+.wipContainer {
+  width: 75%;
+  margin: 0 auto;
+  min-width: 30rem;
+  max-width: 175rem;
+  margin-bottom: 5rem;
+
+  .comments__add {
+    margin: 3rem auto;
+    width: fit-content;
+    text-align: center;
+    
+  }
+
+    
+  &__title {
+    font-size: 6rem;
+    font-family: v.$merri;
+    width: 100%;
+    text-align: center;
+    margin-top: 5rem;
+  }
+
+  &__list {
+    width: 100%;
+    margin-top: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    &__item {
+      flex-basis: calc(100% / 6);
+      height: 25rem;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+      transition: all 0.7s;
+
+      &__container {
+        height: 100%;
+        aspect-ratio: 2/3;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: all 0.7s;
+        position: relative;
+        overflow: hidden;
+
+        &--img {
+          height: 100%;
+          aspect-ratio: 2/3;
+          object-fit: cover;
+          font-size: 2rem;
+           font-family: v.$fjalla;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           color: v.$white;
+          background-color: rgba($color: #696464, $alpha: 0.5);
+        }
+
+         &--title {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          font-size: 2rem;
+          font-family: v.$fjalla;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          color: v.$white;
+          background-color: rgba($color: #131313, $alpha: 0.5);
+          opacity: 0;
+          transition: all 0.7s;
+        }
+      }
+
+      &__container:hover {
+        cursor: pointer;
+        transform: translateX(10px) translateY(-10px);
+        box-shadow: v.$grey -10px 10px;
+      }
+
+      &__container:hover .wipContainer__list__item__container--title {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .wipContainer {
+    &__list {
+      &__item {
+        height: 17rem;
+      }
+    }
+  }
+}

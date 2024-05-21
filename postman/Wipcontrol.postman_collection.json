@@ -1,0 +1,741 @@
+{
+	"info": {
+		"_postman_id": "aa9ebba7-f81f-47a3-b20a-c89c16fbe1af",
+		"name": "Wipcontrol",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27414810"
+	},
+	"item": [
+		{
+			"name": "Sprint",
+			"item": [
+				{
+					"name": "POST new sprint",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"name\": \"Sprint1\",\r\n    \"status\": \"Open\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/sprints?id=1&name=Sprint1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sprints"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "Sprint1"
+								},
+								{
+									"key": "status",
+									"value": "Open",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all sprints",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sprints/names",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sprints",
+								"names"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE sprint",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/delSprint/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delSprint",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Comments",
+			"item": [
+				{
+					"name": "ADD Comments to a task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\": \"3\",\r\n    \"id_story\": 10,\r\n    \"text\": \"Lorem Ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/taskComments",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"taskComments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET task Comments by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/taskComments/task/1/page/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"taskComments",
+								"task",
+								"1",
+								"page",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE task Comment by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/taskComments/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"taskComments",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "ADD Comments to a US",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\": 1,\r\n    \"id_story\": 9,\r\n    \"text\": \"Lorem Ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Comments by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/comments/story/9/page/0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comments",
+								"story",
+								"9",
+								"page",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Comment by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/comments/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comments",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Story",
+			"item": [
+				{
+					"name": "ADD new US",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"US99\",\r\n    \"assigned\":\"root\",\r\n    \"estimation\":90,\r\n    \"description\":\"lorem ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/stories",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all US",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/stories/page?numberPage=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stories",
+								"page"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET US by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stories?idStory=9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stories"
+							],
+							"query": [
+								{
+									"key": "idStory",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Top voted US",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stories/top",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stories",
+								"top"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET US in backlog thumbprints",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/storiesMini",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"storiesMini"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE US by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/delStory/13",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delStory",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE US by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stories?idStory=13",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stories"
+							],
+							"query": [
+								{
+									"key": "idStory",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT points",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stories/points?idStory=9&points=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stories",
+								"points"
+							],
+							"query": [
+								{
+									"key": "idStory",
+									"value": "9"
+								},
+								{
+									"key": "points",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sched",
+			"item": [
+				{
+					"name": "POST New sched",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2024-05-21\",\r\n    \"hours\":\"19:00,20:30,21:30\",\r\n    \"id_story\":\"10\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/scheds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"scheds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET today scheds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/scheds/today",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"scheds",
+								"today"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET scheds after today",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/scheds/afterToday",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"scheds",
+								"afterToday"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET scheds after today of a US",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/scheds/afterToday/story?idStory=8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"scheds",
+								"afterToday",
+								"story"
+							],
+							"query": [
+								{
+									"key": "idStory",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE a sched",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/scheds?idSched=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"scheds"
+							],
+							"query": [
+								{
+									"key": "idSched",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "ADD User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"test\",\r\n    \"email\": \"test@wipcontrol.com\",\r\n    \"pass\": \"e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST user login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"root@wipcontrol.com\",\r\n    \"pass\": \"97c94ebe5d767a353b77f3c0ce2d429741f2e8c99473c3c150e2faa3d14c9da6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET User by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8080/user?idUser=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET username already exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/username?usernameSearched=test",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"username"
+							],
+							"query": [
+								{
+									"key": "usernameSearched",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Email already exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/email?emailSearched=test@wipcontrol.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"email"
+							],
+							"query": [
+								{
+									"key": "emailSearched",
+									"value": "test@wipcontrol.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user?idUser=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

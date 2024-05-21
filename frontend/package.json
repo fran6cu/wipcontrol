@@ -1,0 +1,28 @@
+{
+  "name": "pfg-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "doc": "jsdoc -c jsdoc.json"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "@splidejs/vue-splide": "^0.6.12",
+    "crypto-js": "^4.1.1",
+    "vue": "^3.2.47",
+    "vue-router": "^4.2.0",
+    "vuetify": "^3.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vue/compiler-sfc": "^3.3.2",
+    "jsdoc": "^4.0.2",
+    "jsdoc-vuejs": "^4.0.0",
+    "sass": "^1.62.1",
+    "vite": "^4.3.2"
+  }
+}

@@ -1,0 +1,166 @@
+@use "../utilities/_variables.scss" as v;
+
+
+.modalSched {
+  gap: 3rem;
+  text-align: center;
+
+  .pickHourbtn {
+    width: 40%;
+    min-width: fit-content;
+    height: 50px;
+    font-size: 2.5rem;
+    border: none;
+    background-color: v.$back_web_lighter;
+    border-radius: 10px;
+    color: v.$white;
+    font-family: v.$manrope;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0 20px;
+    margin-top: 2rem;
+
+    @media screen and (max-width: 800px) {
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background-color: v.$orange;
+      color: v.$black;
+    }
+  }
+
+  &__pickDate {
+    font-family: v.$manrope;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__input {
+      font-size: 2rem;
+      border: 0;
+      border-radius: 10px;
+      height: 4rem;
+      padding: 0 10px;
+      background-color: v.$back_menu_lighter;
+      color: v.$black;
+    }
+  }
+
+  &__error {
+    font-family: v.$manrope;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    &__text {
+      font-size: 2rem;
+    }
+  }
+
+  &__pickStory {
+    font-family: v.$manrope;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__input {
+      font-size: 2rem;
+      border: 0;
+      border-radius: 10px;
+      height: 4rem;
+      padding: 0 10px;
+      background-color: v.$back_menu_lighter;
+      color: v.$black;
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+
+  
+  &__pickHours {
+    font-family: v.$manrope;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    &__title {
+      font-family: v.$manrope;
+      font-size: 2rem;
+    }
+
+    &__group {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
+
+      &--input {
+        grid-column-start: 2;
+        justify-self: center;
+        font-size: 2rem;
+        border: 0;
+        border-radius: 10px;
+        height: 4rem;
+        padding: 0 10px;
+        background-color: v.$back_menu_lighter;
+        color: v.$black;
+      }
+
+      .error {
+        outline: 2px solid red;
+      }
+
+      .inputButtons {
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        &__add {
+          filter: invert(82%) sepia(9%) saturate(2852%) hue-rotate(66deg)
+            brightness(98%) contrast(92%);
+          cursor: pointer;
+          width: 30px;
+        }
+
+        &__delete {
+          filter: invert(50%) sepia(28%) saturate(3755%) hue-rotate(326deg)
+            brightness(111%) contrast(84%);
+          cursor: pointer;
+          width: 30px;
+        }
+      }
+    }
+    .formContainer__body__form--error {
+      max-width: 300px;
+      .list {
+        .item {
+          font-family: v.$manrope;
+          width: fit-content;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
