@@ -2,7 +2,7 @@ name: "Deploy Frontend"
 on:
   push:
     paths:
-      - "frontend/**"
+      - "k8s-manifest/frontend/**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +18,8 @@ jobs:
           tenant: ${{ secrets.tenant }}
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
-          image:  wipcontrol-frontend
-          folder: frontend
+          image:  wipcontrolacr.azurecr.io/wipcontrol-frontend:v1
+          folder: wipcontrol
           branch: master
           tag: ${{ github.sha }}
       - name: Azure login
@@ -42,5 +42,5 @@ jobs:
         with:
           manifests: |
              deploy-front.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/wipcontrol:${{ github.sha }}'
           pull-images: false

@@ -2,7 +2,7 @@ name: "Deploy MySql"
 on:
   push:
     paths:
-      - "mysql/**"
+      - "k8s-manifest/mysql/**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +18,8 @@ jobs:
           tenant: ${{ secrets.tenant }}
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
-          image:  wipcontrol-mysql
-          folder: mysql
+          image:  wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
+          folder: wipcontrol
           branch: master
           tag: ${{ github.sha }}
       - name: Azure login
@@ -42,5 +42,5 @@ jobs:
         with:
           manifests: |
              deploy-mysql.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/wipcontrol:${{ github.sha }}'
           pull-images: false

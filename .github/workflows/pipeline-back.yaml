@@ -2,7 +2,7 @@ name: "Deploy Backend"
 on:
   push:
     paths:
-      - "backend/**"
+      - "k8s-manifest/backend/**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +18,8 @@ jobs:
           tenant: ${{ secrets.tenant }}
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
-          image:  wipcontrol-backend
-          folder: backend # wipcontrol/backend
+          image:  wipcontrolacr.azurecr.io/wipcontrol-backend:v1
+          folder: wipcontrol # wipcontrol/backend
           branch: master
           tag: ${{ github.sha }}
       - name: Azure login
@@ -42,5 +42,5 @@ jobs:
         with:
           manifests: |
              deploy-back.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/wipcontrol:${{ github.sha }}'
           pull-images: false
