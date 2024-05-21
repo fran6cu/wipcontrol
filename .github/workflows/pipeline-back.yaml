@@ -1,4 +1,4 @@
-name: build_deploy_aks
+name: "Deploy Backend"
 on:
   push:
     paths:

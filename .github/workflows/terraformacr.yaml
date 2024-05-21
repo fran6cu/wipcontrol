@@ -1,4 +1,4 @@
-name: 'AKS Deployment'
+name: 'ACR Deployment'
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: build_deploy_aks
+name: "Deploy Frontend"
 on:
   push:
     paths:
