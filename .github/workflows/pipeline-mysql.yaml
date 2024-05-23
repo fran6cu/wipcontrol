@@ -15,7 +15,7 @@ jobs:
         with:
           service_principal: ${{ secrets.service_principal }}
           service_principal_password: ${{ secrets.service_principal_password }}
-          tenant: ${{ secrets.tenant }}
+          tenant: ${{ secrets.tenant_id }}
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
           image:  wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
@@ -31,8 +31,8 @@ jobs:
         id: set-context
         uses: azure/aks-set-context@v3
         with:
-          resource-group: '${{ secrets.resource_group }}' 
-          cluster-name: '${{ secrets.cluster_name }}'
+          resource-group: wipcontrol_rg 
+          cluster-name: wipcontrolaks
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v3
