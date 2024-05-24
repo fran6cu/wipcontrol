@@ -22,8 +22,8 @@ provider "azurerm" {
 
 resource "azurerm_container_registry" "acr" {
   name                = var.name
-  resource_group_name = azurerm_resource_group.acr_resource_group.name
-  location            = azurerm_resource_group.acr_resource_group.location
+  resource_group_name = "wipcontrol-rg"
+  location            = "westeurope"
   sku                 = "Standard"
   admin_enabled       = false
 
