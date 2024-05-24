@@ -2,7 +2,7 @@ terraform {
   backend "azurerm" {
     resource_group_name  = "wipcontrol-rg"
     storage_account_name = "wipcontrolsa"
-    container_name       = "tfstate"
+    container_name       = "tfstate-aks"
     key                  = "wipcontrol.terraform.tfstate"
   }
 }
