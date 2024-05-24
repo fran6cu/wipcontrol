@@ -12,13 +12,13 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "acr_resource_group" {
-  name     = var.resource_group_name
-  location = var.location
+# resource "azurerm_resource_group" "acr_resource_group" {
+#   name     = var.resource_group_name
+#   location = var.location
 
-#   tags = var.tags
+# #   tags = var.tags
 
-}
+# }
 
 resource "azurerm_container_registry" "acr" {
   name                = var.name
