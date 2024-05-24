@@ -1,6 +1,6 @@
 variable "name" {
   type = string
-  default = "wipcontrolacr"
+  default = "wipcontrolaks"
 }
 
 variable "resource_group_name" {
