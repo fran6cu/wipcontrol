@@ -14,15 +14,15 @@ jobs:
         id: build-push-acr
         uses: azure/acr-build@v1
         with:
-          service_principal: ${{ secrets.service_principal }}
-          service_principal_password: ${{ secrets.service_principal_password }}
-          tenant: ${{ secrets.tenant_id }}
-          registry: ${{ secrets.registry }}
+          service_principal: ${{ secrets.AZURE_CLIENT_ID }}
+          service_principal_password: ${{ secrets.AZURE_CLIENT_SECRET }}
+          tenant: ${{ secrets.AZURE_TENANT_ID }}
+          registry: wipcontrol
           repository: ${{ secrets.repository }}
-          image:  wipcontrolacr.azurecr.io/wipcontrol-backend:v1
+          image:  wipcontrolacr.azurecr.io/wipcontrol-backend
           folder: wipcontrol # wipcontrol/backend
           branch: master
-          tag: ${{ github.sha }}
+          tag: v1
       - name: Azure login
         id: login
         uses: azure/login@v1.4.3
@@ -43,5 +43,5 @@ jobs:
         with:
           manifests: |
              deploy-back.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/wipcontrol:${{ github.sha }}'
+          images: 'wipcontrolacr.azurecr.io/${{ secrets.repository }}/wipcontrol:${{ github.sha }}'
           pull-images: false
