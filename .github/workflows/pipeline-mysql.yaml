@@ -10,24 +10,39 @@ jobs:
     steps:
       - name: Checkout source code 
         uses: actions/checkout@v3
-      - name: ACR build
-        id: build-push-acr
-        uses: azure/acr-build@v1
+      # - name: ACR build
+      #   id: build-push-acr
+      #   uses: azure/acr-build@v1
+      #   with:
+      #     service_principal: ${{ secrets.AZURE_CLIENT_ID }}
+      #     service_principal_password: ${{ secrets.AZURE_CLIENT_SECRET }}
+      #     tenant: ${{ secrets.AZURE_TENANT_ID }}
+      #     registry: wipcontrolacr
+      #     repository: wipcontrolacr
+      #     image:  wipcontrol-mysql
+      #     # folder: wipcontrol
+      #     branch: master
+      #     tag: v1
+      - name: 'Docker Login'
+        uses: azure/docker-login@v1
         with:
-          service_principal: ${{ secrets.AZURE_CLIENT_ID }}
-          service_principal_password: ${{ secrets.AZURE_CLIENT_SECRET }}
-          tenant: ${{ secrets.AZURE_TENANT_ID }}
-          registry: wipcontrolacr
-          repository: wipcontrolacr
-          image:  wipcontrol-mysql
-          # folder: wipcontrol
-          branch: master
-          tag: v1
-      - name: Azure login
-        id: login
-        uses: azure/login@v1.4.3
+         login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+         username: ${{ secrets.REGISTRY_USERNAME }}
+         password: ${{ secrets.REGISTRY_PASSWORD }}
+
+         
+ 
+      - name: Build the frontend image and push it to ACR
+        uses: docker/build-push-action@v5
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          push: true
+          tags: wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
+          file: mysql/Dockerfile
+      # - name: Azure login
+      #   id: login
+      #   uses: azure/login@v1.4.3
+      #   with:
+      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Set AKS context
         id: set-context
         uses: azure/aks-set-context@v3
