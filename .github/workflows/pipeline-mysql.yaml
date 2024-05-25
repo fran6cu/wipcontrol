@@ -19,7 +19,7 @@ jobs:
           tenant: ${{ secrets.AZURE_TENANT_ID }}
           registry: wipcontrolacr
           repository: wipcontrol-mysql
-          image:  wipcontrolacr.azurecr.io/wipcontrol-mysql
+          image:  wipcontrol-mysql
           # folder: wipcontrol
           branch: master
           tag: v1
