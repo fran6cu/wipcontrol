@@ -34,13 +34,17 @@ jobs:
         run: |
           echo ${{ secrets.REGISTRY_PASSWORD }} | docker login wipcontrolacr.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
          
+      - name: Build and push Docker image
+        run: |
+            docker build -t wipcontrolacr.azurecr.io/wipcontrol-mysql:v1 .
+            docker push wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
  
-      - name: Build the frontend image and push it to ACR
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
-          file: mysql/Dockerfile
+      # - name: Build the frontend image and push it to ACR
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     push: true
+      #     tags: wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
+      #     file: mysql/Dockerfile
       # - name: Azure login
       #   id: login
       #   uses: azure/login@v1.4.3
