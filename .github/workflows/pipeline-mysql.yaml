@@ -39,31 +39,28 @@ jobs:
             docker build -t wipcontrolacr.azurecr.io/wipcontrol-mysql:v1 -f mysql/Dockerfile2 .
             docker push wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
  
-      # - name: Build the frontend image and push it to ACR
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #     push: true
-      #     tags: wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
-      #     file: mysql/Dockerfile
-      # - name: Azure login
-      #   id: login
-      #   uses: azure/login@v1.4.3
-      #   with:
-      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Set AKS context
-        id: set-context
-        uses: azure/aks-set-context@v3
+      - name: Logout from Azure Container Registry
+        run: docker logout wipcontrolacr.azurecr.io
+
+      - name: Set up Azure CLI
+        uses: azure/cli@v1
         with:
-          resource-group: wipcontrol_rg 
-          cluster-name: wipcontrolaks
+          inlineScript: az --version
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Get AKS credentials
+        run: az aks get-credentials --resource-group wipcontrol-rg --name 
+    
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v3
+
       - name: Deploy to AKS
-        id: deploy-aks
-        uses: Azure/k8s-deploy@v4
-        with:
-          manifests: |
-             deploy-mysql.yaml
-          images: 'wipcontrolacr.azurecr.io/wipcontrol-mysql:v1'
-          pull-images: false
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl set image deployment/myapp myapp=wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
+          kubectl rollout status deployment/myapp
