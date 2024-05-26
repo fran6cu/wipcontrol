@@ -10,26 +10,7 @@ jobs:
     steps:
       - name: Checkout source code 
         uses: actions/checkout@v3
-      # - name: ACR build
-      #   id: build-push-acr
-      #   uses: azure/acr-build@v1
-      #   with:
-      #     service_principal: ${{ secrets.AZURE_CLIENT_ID }}
-      #     service_principal_password: ${{ secrets.AZURE_CLIENT_SECRET }}
-      #     tenant: ${{ secrets.AZURE_TENANT_ID }}
-      #     registry: wipcontrolacr
-      #     repository: wipcontrolacr
-      #     image:  wipcontrol-mysql
-      #     # folder: wipcontrol
-      #     branch: master
-      #     tag: v1
-      # - name: 'Docker Login'
-      #   uses: azure/docker-login@v1
-      #   with:
-      #    login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-      #    username: ${{ secrets.REGISTRY_USERNAME }}
-      #    password: ${{ secrets.REGISTRY_PASSWORD }}
-
+      
       - name: Log in to Azure Container Registry
         run: |
           echo ${{ secrets.REGISTRY_PASSWORD }} | docker login wipcontrolacr.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
