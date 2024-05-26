@@ -65,5 +65,5 @@ jobs:
         with:
           manifests: |
              deploy-mysql.yaml
-          images: 'wipcontrolacr.azurecr.io/${{ secrets.repository }}/wipcontrol-mysql:v1'
+          images: 'wipcontrolacr.azurecr.io/wipcontrol-mysql:v1'
           pull-images: false
