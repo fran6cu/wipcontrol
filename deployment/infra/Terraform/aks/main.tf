@@ -20,7 +20,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = var.name
+  name                = "wipcontrolacr"
   resource_group_name = var.resource_group_name
   location            = var.location
   sku                 = "Standard"
@@ -32,7 +32,7 @@ resource "azurerm_container_registry" "acr" {
 
 }
 resource "azurerm_kubernetes_cluster" "k8squickstart" {
-  name                = var.name
+  name                = wipcontrolaks
   location            = var.location
   resource_group_name = var.resource_group_name
   dns_prefix          = "${var.name}-dns01"
