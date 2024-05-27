@@ -34,7 +34,7 @@ jobs:
           az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
       
       - name: Get AKS credentials
-        run: az aks get-credentials --resource-group wipcontrol-rg --name 
+        run: az aks get-credentials --resource-group wipcontrol-rg --name wipcontrolaks
     
       - name: Setup kubectl
         id: install-kubectl
