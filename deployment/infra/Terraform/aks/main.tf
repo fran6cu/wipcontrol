@@ -48,3 +48,9 @@ resource "azurerm_kubernetes_cluster" "k8squickstart" {
     Environment = "Production"
   }
 }
+
+resource "azurerm_role_assignment" "acr_pull" {
+  principal_id           = azurerm_kubernetes_cluster.k8squickstart.identity[0].principal_id
+  role_definition_name   = "AcrPull"
+  scope                  = azurerm_container_registry.k8squickstart.id
+}
