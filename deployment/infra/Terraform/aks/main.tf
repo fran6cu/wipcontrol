@@ -32,7 +32,7 @@ resource "azurerm_container_registry" "acr" {
 
 }
 resource "azurerm_kubernetes_cluster" "k8squickstart" {
-  name                = wipcontrolaks
+  name                = "wipcontrolaks"
   location            = var.location
   resource_group_name = var.resource_group_name
   dns_prefix          = "${var.name}-dns01"
