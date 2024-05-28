@@ -46,3 +46,8 @@ The pipeline does a few things:
 - Terraform apply occurs
 
 4. Run the pipeline and watch as the pipeline automatically create the AKS cluster
+
+
+az aks show --resource-group example-resources --name exampleaks --query "identityProfile.kubeletidentity.clientId" -o tsv
+
+az role assignment create --assignee <kubelet-identity-client-id> --role "AcrPull" --scope $(az acr show --name exampleacr --resource-group example-resources --query id -o tsv)
