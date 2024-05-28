@@ -17,7 +17,7 @@ jobs:
          
       - name: Build and push Docker image
         run: |
-            docker build -t wipcontrolacr.azurecr.io/wipcontrol-backend:v1 -f /Dockerfile2 .
+            docker build -t wipcontrolacr.azurecr.io/wipcontrol-backend:v1 -f backend/Dockerfile2 .
             docker push wipcontrolacr.azurecr.io/wipcontrol-backend:v1
  
       - name: Logout from Azure Container Registry
