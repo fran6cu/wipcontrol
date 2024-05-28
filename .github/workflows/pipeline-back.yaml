@@ -17,8 +17,8 @@ jobs:
          
       - name: Build and push Docker image
         run: |
-            docker build -t wipcontrolacr.azurecr.io/wipcontrol-backend:v1 -f backend/Dockerfile2 .
-            docker push wipcontrolacr.azurecr.io/wipcontrol-backend:v1
+            docker build -t wipcontrolacr.azurecr.io/wipcontrol-back:v1 -f backend/Dockerfile2 .
+            docker push wipcontrolacr.azurecr.io/wipcontrol-back:v1
  
       - name: Logout from Azure Container Registry
         run: docker logout wipcontrolacr.azurecr.io
@@ -42,6 +42,6 @@ jobs:
 
       - name: Deploy to AKS
         run: |
-          kubectl apply -f deployment/k8s-manifest/backend/deploy-backend.yaml
-          kubectl set image deployment/wipcontrol-backend wipcontrol-backend=wipcontrolacr.azurecr.io/wipcontrol-backend:v1
-          kubectl rollout status deployment/wipcontrol-backend
+          kubectl apply -f deployment/k8s-manifest/backend/deploy-back.yaml
+          kubectl set image deployment/wipcontrol-back wipcontrol-back=wipcontrolacr.azurecr.io/wipcontrol-backend:v1
+          kubectl rollout status deployment/wipcontrol-back
