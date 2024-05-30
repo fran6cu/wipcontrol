@@ -50,4 +50,4 @@ The pipeline does a few things:
 
 az aks show --resource-group wipcontrol-rg --name wipcontrolaks --query "identityProfile.kubeletidentity.clientId" -o tsv
 
-az role assignment create --assignee <kubelet-identity-client-id> --role "AcrPull" --scope $(az acr show --name exampleacr --resource-group example-resources --query id -o tsv)
+az role assignment create --assignee <kubelet-identity-client-id> --role "AcrPull" --scope $(az acr show --name wipcontrolacr --resource-group wipcontrol-rg --query id -o tsv)
