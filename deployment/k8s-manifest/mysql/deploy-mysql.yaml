@@ -5,39 +5,83 @@ metadata:
 
 ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: wipcontrol-mysql
-  namespace: wipcontrol
-spec:
-  selector:
-    app: wipcontrol-mysql
-  ports:
-  - protocol: "TCP"
-    port: 5768
-    targetPort: 5768
-  type: LoadBalancer
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wipcontrol-mysql
-  namespace: wipcontrol
+  name: mysql
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: wipcontrol-mysql
-  replicas: 1
+      app: mysql
   template:
     metadata:
       labels:
-        app: wipcontrol-mysql
+        app: mysql
     spec:
       containers:
-      - name: wipcontrol-mysql
+      - name: mysql
         image: wipcontrolacr.azurecr.io/wipcontrol-mysql:v1
         ports:
-        - containerPort: 5678
+        - containerPort: 3306
+        env:
+        - name: MYSQL_DATABASE
+          value: "wipcontrol"
+        - name: MYSQL_USER
+          value: "root123"
+        - name: MYSQL_PASSWORD
+          value: "root123"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
+        volumeMounts:
+        - name: mysql-initdb
+          mountPath: /docker-entrypoint-initdb.d
+        - name: mysql-data
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-initdb
+        persistentVolumeClaim:
+          claimName: mysql-initdb-pvc
+      - name: mysql-data
+        persistentVolumeClaim:
+          claimName: mysql-data-pvc
+
 ---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-initdb-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: mysql
+  type: LoadBalancer
