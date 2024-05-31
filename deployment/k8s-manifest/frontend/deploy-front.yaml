@@ -39,4 +39,5 @@ spec:
         image: wipcontrolacr.azurecr.io/wipcontrol-front:v1
         ports:
         - containerPort: 5678
+        command: ["npm", "run", "dev"]
 ---
