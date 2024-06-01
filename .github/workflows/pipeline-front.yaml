@@ -17,6 +17,7 @@ jobs:
          
       - name: Build and push Docker image
         run: |
+            cd frontend
             docker build -t wipcontrolacr.azurecr.io/wipcontrol-front:v1 -f Dockerfile2 .
             docker push wipcontrolacr.azurecr.io/wipcontrol-front:v1
  
