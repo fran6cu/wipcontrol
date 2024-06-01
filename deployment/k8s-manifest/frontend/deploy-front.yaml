@@ -14,8 +14,8 @@ spec:
     app: wipcontrol-front
   ports:
   - protocol: "TCP"
-    port: 5768
-    targetPort: 5768
+    port: 5173
+    targetPort: 5173
   type: LoadBalancer
 
 ---

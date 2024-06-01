@@ -8,7 +8,7 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: wipcontrol-mysql
   namespace: wipcontrol
 spec:
   replicas: 1
@@ -80,7 +80,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: wipcontrol-mysql
+  namespace: wipcontrol
 spec:
   ports:
   - port: 3306
