@@ -39,5 +39,5 @@ spec:
         image: wipcontrolacr.azurecr.io/wipcontrol-back:v1
         ports:
         - containerPort: 8080
-        command: ["sh", "-c", "bash /app/wait-for-it.sh wipcontrol-mysql:3306 -t 60 -- java -jar target/wipcontrol-0.0.1-SNAPSHOT.jar"]
+        command: ["sh", "-c", "bash /app/wait-for-it.sh wipcontrol-mysql.wipcontrol.svc.cluster.local:3306 -t 60 -- java -jar target/wipcontrol-0.0.1-SNAPSHOT.jar"]
 ---
