@@ -48,6 +48,6 @@ The pipeline does a few things:
 4. Run the pipeline and watch as the pipeline automatically create the AKS cluster
 
 
-az aks show --resource-group wipcontrol-rg --name wipcontrolaks --query "identityProfile.kubeletidentity.clientId" -o tsv
+client-id = az aks show --resource-group wipcontrol-rg --name wipcontrolaks --query "identityProfile.kubeletidentity.clientId" -o tsv
 
-az role assignment create --assignee <kubelet-identity-client-id> --role "AcrPull" --scope $(az acr show --name wipcontrolacr --resource-group wipcontrol-rg --query id -o tsv)
+az role assignment create --assignee $client-id --role "AcrPull" --scope $(az acr show --name wipcontrolacr --resource-group wipcontrol-rg --query id -o tsv)
