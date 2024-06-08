@@ -1,7 +1,7 @@
 # TFG - WIPCONTROL LOCAL REPOSITORY
 
 <p align="center">
-  <img width="280" alt="logo" src="https://user-images.githubusercontent.com/*.png">
+  <img width="280" alt="logo" src="frontend/src/assets/icons/wiplogo.PNG">
 </p>
 
 # Índice
