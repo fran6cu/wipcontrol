@@ -32,6 +32,10 @@ Once the command has been executed wait until the three containers (Database, Ba
 
 - http://localhost:5173
 
+## How to run WipControl in AKS
+
+[Prerequisites](deployment/Prerequisites.md)
+
 ## DataBase users and data
 
 The deployment already comes with several data loaded so as not to start from scratch. It also comes loaded with two users, one more important for being the administrator and the one capable of adding/editing/deleting stories, adding tasks and so on, whose credentials are:
