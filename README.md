@@ -35,10 +35,10 @@ Once the command has been executed wait until the three containers (Database, Ba
 ## How to run WipControl in AKS
 
 - [Prerequisites](deployment/Prerequisites.md)
-- [Terraform state]deployment/infra/Azure/1-Terraform-Remote-Storage.md
-- [Azure Service Principal]deployment/infra/Azure/3-Deployment-Service-Principal.md
-- [Github Actions deploy infra]deployment/infra/Terraform/README.md
-- [Github Action deploy services]deployment/k8s-manifest/README.md
+- [Terraform state](deployment/infra/Azure/1-Terraform-Remote-Storage.md)
+- [Azure Service Principal](deployment/infra/Azure/3-Deployment-Service-Principal.md)
+- [Github Actions deploy infra](deployment/infra/Terraform/README.md)
+- [Github Action deploy services](deployment/k8s-manifest/README.md)
 
 
 
