@@ -6,7 +6,6 @@
 
 # Índice
 
-- [TFG - 【WipControl】LOCAL REPOSITORY](#tfg---repository-localwipcontrol)
 - [Index](#index)
   - [About this repository](#about-this-repository)
   - [How to run WipControl in local](#how-to-run-wipcontrol-in-local)
